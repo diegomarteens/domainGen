@@ -5,7 +5,39 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+let pronoun = ["wee", "woo"];
+let adj = ["smart", "dumb"];
+let noun = ["tico", "teco"];
+let extension = [".com", ".me", ".us", ".br"];
+
+// var button = document.querySelector("#click");
+// button.addEventListener("click", change);
+
+function generateLi(domain) {
+  return "<li>" + domain + "</li>";
+}
+
+function generateDomains(pronounArr, adjArr, nounArr, extensionArr) {
+  let storageArr = [];
+  for (let i = 0; i < pronounArr.length; i++) {
+    for (let j = 0; j < adjArr.length; j++) {
+      for (let k = 0; k < nounArr.length; k++) {
+        for (let l = 0; l < extensionArr.length; l++) {
+          storageArr.push(
+            pronounArr[i] + adjArr[j] + nounArr[k] + extensionArr[l]
+          );
+        }
+      }
+    }
+  }
+  let arrayOfLiTags = storageArr.map(function(item, index) {
+    return generateLi(item);
+  });
+
+  let result = arrayOfLiTags.join("");
+  return result;
+}
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  const unorderedList = document.getElementById("domains");
+  unorderedList.innerHTML = generateDomains(pronoun, adj, noun, extension);
 };
