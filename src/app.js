@@ -10,9 +10,6 @@ let adj = ["smart", "dumb"];
 let noun = ["tico", "teco"];
 let extension = [".com", ".me", ".us", ".br"];
 
-// var button = document.querySelector("#click");
-// button.addEventListener("click", change);
-
 function generateLi(domain) {
   return "<li>" + domain + "</li>";
 }
